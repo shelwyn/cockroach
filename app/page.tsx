@@ -162,8 +162,15 @@ export default function Home() {
                 <Roach className="absolute inset-0 m-auto h-[82%] w-[82%] animate-drift" />
               </div>
 
-              <div className="mt-6 flex items-center justify-between gap-4 border-t border-ink/10 pt-4">
+              <div className="mt-6 flex items-center justify-between gap-3 border-t border-ink/10 pt-4">
                 <p className="label text-ash/60">Periplaneta americana</p>
+                <p className="label hidden items-center gap-2 text-amber/80 sm:flex">
+                  <span
+                    aria-hidden="true"
+                    className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber"
+                  />
+                  Poke the specimen
+                </p>
                 <p className="label text-amber">Fig. 01</p>
               </div>
             </div>
