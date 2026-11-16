@@ -143,6 +143,226 @@
   }
 }
 
+
+/* ---------------------------------------------------------------------------
+   Ambient backdrop
+   A fixed, decorative colour field behind the page. Three radial "orbs" drift
+   on long, offset loops while their colours cycle through the palette, so the
+   background is never quite the same shade twice.
+   --------------------------------------------------------------------------- */
+
+@property --ambient-a {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: rgb(104 132 68 / 0.26);
+}
+
+@property --ambient-b {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: rgb(227 162 74 / 0.18);
+}
+
+@property --ambient-c {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: rgb(178 92 51 / 0.18);
+}
+
+@keyframes ambient-base {
+  0%,
+  100% {
+    background-color: #080906;
+  }
+  25% {
+    background-color: #0a0c07;
+  }
+  50% {
+    background-color: #0e0b07;
+  }
+  75% {
+    background-color: #090c08;
+  }
+}
+
+@keyframes ambient-tint-a {
+  0%,
+  100% {
+    --ambient-a: rgb(104 132 68 / 0.26);
+  }
+  30% {
+    --ambient-a: rgb(169 186 124 / 0.2);
+  }
+  58% {
+    --ambient-a: rgb(227 162 74 / 0.17);
+  }
+  80% {
+    --ambient-a: rgb(178 92 51 / 0.15);
+  }
+}
+
+@keyframes ambient-tint-b {
+  0%,
+  100% {
+    --ambient-b: rgb(227 162 74 / 0.18);
+  }
+  28% {
+    --ambient-b: rgb(178 92 51 / 0.16);
+  }
+  55% {
+    --ambient-b: rgb(169 186 124 / 0.18);
+  }
+  78% {
+    --ambient-b: rgb(95 112 64 / 0.22);
+  }
+}
+
+@keyframes ambient-tint-c {
+  0%,
+  100% {
+    --ambient-c: rgb(178 92 51 / 0.18);
+  }
+  32% {
+    --ambient-c: rgb(95 112 64 / 0.21);
+  }
+  62% {
+    --ambient-c: rgb(169 186 124 / 0.16);
+  }
+  85% {
+    --ambient-c: rgb(227 162 74 / 0.14);
+  }
+}
+
+@keyframes ambient-float-a {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(9vmax, 7vmax, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(-4vmax, 14vmax, 0) scale(1.04);
+  }
+}
+
+@keyframes ambient-float-b {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-11vmax, -8vmax, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(5vmax, -14vmax, 0) scale(1.1);
+  }
+}
+
+@keyframes ambient-float-c {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(7vmax, -10vmax, 0) scale(1.14);
+  }
+  100% {
+    transform: translate3d(-9vmax, 6vmax, 0) scale(1.02);
+  }
+}
+
+@keyframes ambient-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@layer utilities {
+  .ambient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    background-color: var(--color-void);
+    animation: ambient-base 72s ease-in-out infinite;
+  }
+
+  .ambient-orb {
+    position: absolute;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    will-change: transform;
+  }
+
+  .ambient-orb-a {
+    --ambient-a: rgb(104 132 68 / 0.26);
+    top: -34vmax;
+    left: -26vmax;
+    width: 92vmax;
+    height: 92vmax;
+    background: radial-gradient(circle at 50% 50%, var(--ambient-a) 0%, transparent 62%);
+    animation:
+      ambient-tint-a 29s ease-in-out infinite,
+      ambient-float-a 67s ease-in-out infinite alternate;
+  }
+
+  .ambient-orb-b {
+    --ambient-b: rgb(227 162 74 / 0.18);
+    right: -32vmax;
+    bottom: -40vmax;
+    width: 86vmax;
+    height: 86vmax;
+    background: radial-gradient(circle at 50% 50%, var(--ambient-b) 0%, transparent 60%);
+    animation:
+      ambient-tint-b 37s ease-in-out infinite,
+      ambient-float-b 79s ease-in-out infinite alternate;
+  }
+
+  .ambient-orb-c {
+    --ambient-c: rgb(178 92 51 / 0.18);
+    top: 28%;
+    left: 38%;
+    width: 58vmax;
+    height: 58vmax;
+    background: radial-gradient(circle at 50% 50%, var(--ambient-c) 0%, transparent 58%);
+    animation:
+      ambient-tint-c 23s ease-in-out infinite,
+      ambient-float-c 59s ease-in-out infinite alternate;
+  }
+
+  .ambient-sweep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200vmax;
+    height: 200vmax;
+    margin: -100vmax 0 0 -100vmax;
+    opacity: 0.03;
+    mix-blend-mode: screen;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      rgba(169, 186, 124, 0.5) 34deg,
+      transparent 96deg,
+      transparent 190deg,
+      rgba(227, 162, 74, 0.42) 228deg,
+      transparent 300deg
+    );
+    animation: ambient-sweep 180s linear infinite;
+    will-change: transform;
+  }
+
+  .ambient-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(130% 90% at 62% -10%, transparent 38%, rgba(8, 9, 6, 0.5) 100%),
+      linear-gradient(to bottom, transparent 55%, rgba(8, 9, 6, 0.45) 100%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
