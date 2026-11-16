@@ -195,7 +195,7 @@ export default function Home() {
         {/* TICKER */}
         <section
           aria-label="Cockroach facts"
-          className="relative border-y border-ink/10 bg-bark/70 py-4"
+          className="relative border-y border-ink/10 py-4"
         >
           <div className="flex w-max animate-marquee items-center gap-8 whitespace-nowrap">
             {[0, 1].map((copy) => (
@@ -278,7 +278,7 @@ export default function Home() {
         </section>
 
         {/* ANATOMY / WHY THEY WIN */}
-        <section id="anatomy" className="border-y border-ink/10 bg-bark/70">
+        <section id="anatomy" className="border-y border-ink/10">
           <div className="mx-auto w-full max-w-[1180px] px-5 py-24 sm:px-8 sm:py-32">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
               <div>
@@ -411,7 +411,7 @@ export default function Home() {
         </section>
 
         {/* MYTHS */}
-        <section id="myths" className="border-y border-ink/10 bg-bark/70">
+        <section id="myths" className="border-y border-ink/10">
           <div className="mx-auto w-full max-w-[1180px] px-5 py-24 sm:px-8 sm:py-32">
             <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
               <div className="lg:sticky lg:top-24 lg:self-start">
@@ -539,7 +539,7 @@ export default function Home() {
         </section>
 
         {/* ECOLOGY / CLOSING */}
-        <section className="border-t border-ink/10 bg-bark/70">
+        <section className="border-t border-ink/10">
           <div className="mx-auto w-full max-w-[1180px] px-5 py-24 sm:px-8 sm:py-32">
             <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
               <div>

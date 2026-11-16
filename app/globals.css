@@ -154,19 +154,19 @@
 @property --ambient-a {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgb(104 132 68 / 0.26);
+  initial-value: rgb(104 132 68 / 0.52);
 }
 
 @property --ambient-b {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgb(227 162 74 / 0.18);
+  initial-value: rgb(227 162 74 / 0.26);
 }
 
 @property --ambient-c {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgb(178 92 51 / 0.18);
+  initial-value: rgb(178 92 51 / 0.23);
 }
 
 @keyframes ambient-base {
@@ -175,61 +175,61 @@
     background-color: #080906;
   }
   25% {
-    background-color: #0a0c07;
+    background-color: #0b0e07;
   }
   50% {
-    background-color: #0e0b07;
+    background-color: #0d0a07;
   }
   75% {
-    background-color: #090c08;
+    background-color: #090d08;
   }
 }
 
 @keyframes ambient-tint-a {
   0%,
   100% {
-    --ambient-a: rgb(104 132 68 / 0.26);
+    --ambient-a: rgb(104 132 68 / 0.52);
   }
   30% {
-    --ambient-a: rgb(169 186 124 / 0.2);
+    --ambient-a: rgb(169 186 124 / 0.32);
   }
   58% {
-    --ambient-a: rgb(227 162 74 / 0.17);
+    --ambient-a: rgb(227 162 74 / 0.27);
   }
   80% {
-    --ambient-a: rgb(178 92 51 / 0.15);
+    --ambient-a: rgb(178 92 51 / 0.24);
   }
 }
 
 @keyframes ambient-tint-b {
   0%,
   100% {
-    --ambient-b: rgb(227 162 74 / 0.18);
+    --ambient-b: rgb(227 162 74 / 0.26);
   }
   28% {
-    --ambient-b: rgb(178 92 51 / 0.16);
+    --ambient-b: rgb(178 92 51 / 0.21);
   }
   55% {
-    --ambient-b: rgb(169 186 124 / 0.18);
+    --ambient-b: rgb(169 186 124 / 0.16);
   }
   78% {
-    --ambient-b: rgb(95 112 64 / 0.22);
+    --ambient-b: rgb(95 112 64 / 0.3);
   }
 }
 
 @keyframes ambient-tint-c {
   0%,
   100% {
-    --ambient-c: rgb(178 92 51 / 0.18);
+    --ambient-c: rgb(178 92 51 / 0.23);
   }
   32% {
-    --ambient-c: rgb(95 112 64 / 0.21);
+    --ambient-c: rgb(95 112 64 / 0.28);
   }
   62% {
-    --ambient-c: rgb(169 186 124 / 0.16);
+    --ambient-c: rgb(169 186 124 / 0.18);
   }
   85% {
-    --ambient-c: rgb(227 162 74 / 0.14);
+    --ambient-c: rgb(227 162 74 / 0.2);
   }
 }
 
@@ -297,7 +297,7 @@
   }
 
   .ambient-orb-a {
-    --ambient-a: rgb(104 132 68 / 0.26);
+    --ambient-a: rgb(104 132 68 / 0.52);
     top: -34vmax;
     left: -26vmax;
     width: 92vmax;
@@ -309,7 +309,7 @@
   }
 
   .ambient-orb-b {
-    --ambient-b: rgb(227 162 74 / 0.18);
+    --ambient-b: rgb(227 162 74 / 0.26);
     right: -32vmax;
     bottom: -40vmax;
     width: 86vmax;
@@ -321,7 +321,7 @@
   }
 
   .ambient-orb-c {
-    --ambient-c: rgb(178 92 51 / 0.18);
+    --ambient-c: rgb(178 92 51 / 0.23);
     top: 28%;
     left: 38%;
     width: 58vmax;
