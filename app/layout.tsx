@@ -28,6 +28,14 @@ export const metadata: Metadata = {
     description:
       "A field guide to Blattodea: 4,600 species, 320 million years of practice, and one very misunderstood insect.",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Cockroach — older than the dinosaurs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cockroach — Older than the dinosaurs",
+    description:
+      "A field guide to Blattodea: 4,600 species, 320 million years, and one very misunderstood insect.",
+    images: ["/og.png"],
   },
 };
 
